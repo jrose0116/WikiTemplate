@@ -15,7 +15,7 @@ const ContentEditor = () => {
                 <button style={{...buttonStyle, backgroundColor: "#36454f", fontWeight: "600"}}>Preview</button>
                 <button style={buttonStyle} onClick={()=>setPreview(2)}>Side-by-Side</button>
             </div>
-            <div style={{padding:"0 10px", width: "calc(100% - 60px)", margin: '10px', backgroundColor: "#536878", minHeight: "300px"}}><Markdown className={style.markdownStyle}>{content}</Markdown></div>
+            <div style={{padding:"0 10px", width: "calc(100% - 40px)", minHeight: "300px"}}><Markdown className={style.markdownStyle}>{content}</Markdown></div>
         </div>
     </div>
 
@@ -41,9 +41,9 @@ const ContentEditor = () => {
         </div>
         <div style={{display:"flex", margin:"10px", gap: "10px", width: "calc(100% - 40px)",}}>
         <div style={{display: "flex", width: "calc(50%)"}}>
-        <textarea style={{width: "100%", height: "300px", fontFamily: "monospace", fontSize: "18px"}} onChange={(event)=>setContent(event.target.value)}>{content}</textarea>    
+        <textarea style={{width: "100%", height: "300px", fontFamily: "monospace", fontSize: "18px"}} onChange={(event)=>setContent(event.target.value)} value={content} />
         </div>
-        <div style={{padding:"0 10px", width: "calc(50%)", backgroundColor: "#536878"}}>
+        <div style={{width: "calc(50%)"}}>
             <Markdown className={style.markdownStyle}>{content}</Markdown></div>
         </div>
     </div>
