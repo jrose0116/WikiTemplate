@@ -1,6 +1,7 @@
 import Markdown from 'react-markdown'
 import style from "../../src/styles/markdownstyling.module.css"
 import { useState } from "react"
+import rehypeRaw from "rehype-raw";
 
 const ContentEditor = () => {
     const [preview, setPreview] = useState(0)
@@ -15,7 +16,7 @@ const ContentEditor = () => {
                 <button style={{...buttonStyle, backgroundColor: "#36454f", fontWeight: "600"}}>Preview</button>
                 <button style={buttonStyle} onClick={()=>setPreview(2)}>Side-by-Side</button>
             </div>
-            <div style={{padding:"0 10px", width: "calc(100% - 40px)", minHeight: "300px"}}><Markdown className={style.markdownStyle}>{content}</Markdown></div>
+            <div style={{padding:"0 10px", width: "calc(100% - 40px)", minHeight: "300px"}}><Markdown rehypePlugins={[rehypeRaw]} className={style.markdownStyle}>{content}</Markdown></div>
         </div>
     </div>
 
@@ -44,7 +45,7 @@ const ContentEditor = () => {
         <textarea style={{width: "100%", height: "300px", fontFamily: "monospace", fontSize: "18px"}} onChange={(event)=>setContent(event.target.value)} value={content} />
         </div>
         <div style={{width: "calc(50%)"}}>
-            <Markdown className={style.markdownStyle}>{content}</Markdown></div>
+            <Markdown rehypePlugins={[rehypeRaw]} className={style.markdownStyle}>{content}</Markdown></div>
         </div>
     </div>
 </div>
