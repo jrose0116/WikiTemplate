@@ -18,6 +18,10 @@ const Main = ({children}) => {
             </div>
         </nav>
         <main>{children}</main>
+        <style jsx global>{`body {
+                background: #78848c;
+            }`}
+        </style>
         </>
     )
 }
