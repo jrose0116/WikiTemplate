@@ -34,12 +34,12 @@ BLOCK
 - ul li
 1. ol li
 
-1. 1
-1. 2
-    1. INSIDE
-    1. WOO
-        * BANANAS
-1. 3
+1. ol 1
+1. ol 2
+    1. Nested 1
+    1. Nested 2
+        * Nested Again!
+1. ol 3
     `
 
     return <Main>
