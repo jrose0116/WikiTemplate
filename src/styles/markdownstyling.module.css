@@ -85,6 +85,11 @@
     margin-bottom: 0.2em;
 }
 
+.markdownStyle ul > li {
+    list-style-type: "- ";
+    list-style-position: inside;
+}
+
 .markdownStyle ul ul,
 .markdownStyle ul ol,
 .markdownStyle ol ul,
