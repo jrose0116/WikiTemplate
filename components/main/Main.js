@@ -8,7 +8,7 @@ const Main = ({children}) => {
         <>
         <nav style={{display: "flex", gap: "35px", width: "90%", justifyContent: "center", margin: "10px auto", backgroundColor: "#222831", fontFamily: "sans-serif", fontSize: "20px"}}>
             <a href="/" style={navLinkStyle}><p>Home</p></a>
-            {/* <a href="/pages" style={navLinkStyle}><p>Pages</p></a> */}
+            <a href="/pages" style={navLinkStyle}><p>Pages</p></a>
             <div className={globalStyles.dropdown}>
                 <p className={globalStyles.dropdownButton}>Docs <span className={globalStyles.dropdownArrow}></span></p>
                 <div className={globalStyles.dropdownLinks}>
