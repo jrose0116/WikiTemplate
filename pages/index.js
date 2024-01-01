@@ -11,6 +11,9 @@ This is the home page for my Wiki/Forum template website.
 \`\`\`
 #TODO
 - Authentication
+    - Admin Permissions
+    - Delete Pages
+- Input Validation
 - Deployment
 \`\`\`
 
