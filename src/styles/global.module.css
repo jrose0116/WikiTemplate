@@ -20,6 +20,7 @@
     display: none;
     position: absolute;
     width: fit-content;
+    z-index: 100;
 }
 
 .dropdown:hover .dropdownLinks {
@@ -39,6 +40,10 @@
     background-color: #3D3B40;
     color: #EEEEEE;
     text-decoration: none;
+}
+
+.dropdownLinks a:hover {
+    background-color: #7C7C7C;
 }
 
 .dropdownArrow {
