@@ -12,6 +12,7 @@
 
 .markdownStyle h1 {
     font-size: 2rem;
+    text-transform: capitalize;
 }
 
 .markdownStyle h2 {
