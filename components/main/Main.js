@@ -1,3 +1,4 @@
+import Head from "next/head"
 import globalStyles from "../../src/styles/global.module.css"
 
 const Main = ({children}) => {
@@ -6,6 +7,9 @@ const Main = ({children}) => {
 
     return (
         <>
+        <Head>
+            <title>Wiki Template</title>
+        </Head>
         <nav style={{display: "flex", gap: "35px", width: "90%", justifyContent: "center", margin: "10px auto", backgroundColor: "#222831", fontFamily: "sans-serif", fontSize: "20px"}}>
             <a href="/" style={navLinkStyle}><p>Home</p></a>
             <a href="/pages" style={navLinkStyle}><p>Pages</p></a>
