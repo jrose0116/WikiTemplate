@@ -10,9 +10,14 @@ const createPage = async (title, content, author) => {
     return (await pageCollection.insertOne({title, content, author}))
 }
 
+const editContent = async (title, content) => {
+    const pageCollection = await pages()
+    return (await pageCollection.findOneAndUpdate({title}, {$set: {content}}))
+}
+
 const getPage = async (title) => {
     const pageCollection = await pages()
     return (await pageCollection.find({title}).toArray())[0]
 }
 
-export { getAllPages, createPage, getPage }
+export { getAllPages, createPage, getPage, editContent }
