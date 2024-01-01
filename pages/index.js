@@ -24,7 +24,7 @@ This is the home page for my Wiki/Forum template website.
 - Database (TBD)
 ## Contributors
 This application has been worked on by:
-- Jacob Rosengarten | [@jrose0116](http://www.github.com/jrose0116) (Just me for now 🥺)
+- Jacob Rosengarten | [@jrose0116](https://www.github.com/jrose0116) (Just me for now 🥺)
 ## Routing
 - \`/\` Here we are at the root directory
 - \`/docs\` The documents directories (Generally static)
