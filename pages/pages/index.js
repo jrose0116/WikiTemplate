@@ -3,12 +3,14 @@ import Markdown from 'react-markdown'
 import style from "@/src/styles/markdownstyling.module.css"
 import { getAllPages } from "@/src/styles/data/pages"
 import rehypeRaw from "rehype-raw";
+import Link from "next/link";
 
 const Pages = ({content}) => {
 
     return <Main>
+            
             <div style={{width: "90%", margin: "10px auto", display: "flex", justifyContent: "space-around", gap: "10px"}}>
-            <div style={{backgroundColor: "#393E46", width: "100%", margin: "0", padding: "10px"}}><Markdown rehypePlugins={[rehypeRaw]} className={style.markdownStyle}>{content}</Markdown></div>
+            <div style={{backgroundColor: "#393E46", width: "100%", margin: "0", padding: "10px", position: "relative"}}><Link href="/create" style={{position: "absolute", top: "20px", right: "20px", backgroundColor: "#536878", color: "white", padding: "10px 20px", border: "none", cursor: "pointer", textDecoration: "none", fontFamily: "sans-serif"}}>Create</Link><Markdown rehypePlugins={[rehypeRaw]} className={style.markdownStyle}>{content}</Markdown></div>
             {/* <div style={{backgroundColor: "#393E46", width: "30%", margin: "0"}}>Popular Pages</div> */}
             </div>
         </Main>
