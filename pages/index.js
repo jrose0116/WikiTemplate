@@ -32,6 +32,7 @@ This application has been worked on by:
     - \`/[page]\` The document page: See navigation
 - \`/pages\` The pages directories (Dynamically loaded pages)
     - \`/[page]\` The dynamic page
+- \`/create\` Create pages
 ## Deployment
 Deployment has not yet been decided although AWS is a likely choice
 
