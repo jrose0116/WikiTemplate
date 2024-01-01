@@ -1,5 +1,5 @@
 import Markdown from 'react-markdown'
-import style from "../../src/styles/markdownstyling.module.css"
+import style from "@/src/styles/markdownstyling.module.css"
 import { useState } from "react"
 import rehypeRaw from "rehype-raw";
 
