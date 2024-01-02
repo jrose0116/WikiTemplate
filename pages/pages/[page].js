@@ -5,11 +5,15 @@ import { getPage } from "@/src/data/pages"
 import rehypeRaw from "rehype-raw";
 import { useState } from "react";
 import ContentEditor from "@/components/contentEditor/ContentEditor"
+import { useSession } from "next-auth/react";
+import { getUserInfo } from "@/src/data/users";
+import { ObjectId } from "mongodb";
 
-const DynamicPage = ({header, content, title}) => {
+const DynamicPage = ({header, content, title, authorId}) => {
     const [editing, setEditing] = useState(false)
+    const { data } = useSession()
 
-    if(editing && true) // Replace true with auth later on
+    if(editing && data?.user?.sub == authorId) // Replace true with auth later on
         return <Main>
         <div style={{width: "90%", margin: "10px auto", display: "flex", justifyContent: "space-around", gap: "10px"}}>
         <div style={{backgroundColor: "#393E46", width: "100%", margin: "0", padding: "10px"}}><ContentEditor header={header} data={content} title={title} cancel={()=>setEditing(false)}></ContentEditor></div>
@@ -20,7 +24,7 @@ const DynamicPage = ({header, content, title}) => {
     return <Main>
             <div style={{width: "90%", margin: "10px auto", display: "flex", justifyContent: "space-around", gap: "10px"}}>
                 <div style={{backgroundColor: "#393E46", width: "calc(100%)", padding: "10px", position: "relative"}}>
-                    <button style={{position: "absolute", top: "20px", right: "20px", backgroundColor: "#536878", color: "white", padding: "10px 20px", border: "none", cursor: "pointer"}} onClick={()=>setEditing(true)}>Edit</button>
+                    {(data?.user?.sub == authorId) ? <button style={{position: "absolute", top: "20px", right: "20px", backgroundColor: "#536878", color: "white", padding: "10px 20px", border: "none", cursor: "pointer"}} onClick={()=>setEditing(true)}>Edit</button> : <></>}
                     <div style={{backgroundColor: "#393E46", width: "100%", margin: "0"}}><Markdown rehypePlugins={[rehypeRaw]} className={style.markdownStyle}>{header}</Markdown></div>
                     <div style={{backgroundColor: "#393E46", width: "100%", margin: "0"}}><Markdown rehypePlugins={[rehypeRaw]} className={style.markdownStyle}>{content}</Markdown></div>
                 </div>
@@ -32,13 +36,17 @@ const DynamicPage = ({header, content, title}) => {
 export const getServerSideProps = async (context) => {
     const { page } = context.query;
     const res = await getPage(page)
-
+    
     if (res) {
+        let user;
+        if(ObjectId.isValid(res.author)) user = await getUserInfo(res.author)
+        else user = {displayName: "undefined"}
         return {
             props: {
-                header: `# ${res.title}\n##### Written by ${res.author} ${res.date ? "on " + res.date : ""}`,
+                header: `# ${res.title}\n##### Written by ${user?.displayName} ${res.date ? "on " + res.date : ""}`,
                 content: res.content,
-                title: res.title
+                title: res.title,
+                authorId: res.author,
             },
         };
     }
