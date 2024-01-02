@@ -1,7 +1,7 @@
 import Main from "@/components/main/Main"
 import Markdown from 'react-markdown'
 import style from "@/src/styles/markdownstyling.module.css"
-import { getPage } from "@/src/styles/data/pages"
+import { getPage } from "@/src/data/pages"
 import rehypeRaw from "rehype-raw";
 import { useState } from "react";
 import ContentEditor from "@/components/contentEditor/ContentEditor"

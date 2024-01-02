@@ -1,4 +1,4 @@
-import { editContent } from '@/src/styles/data/pages';
+import { editContent } from '@/src/data/pages';
 
 export default async function editPage(req, res) {
   if (req.method === 'POST') {
