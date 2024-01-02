@@ -18,11 +18,30 @@ export const getUserInfo = async (id) => {
 }
 
 export const userExists = async (username) => {
-    const usersCollection = await users()
-    try {
-        const existingUser = await usersCollection.findOne({ username: username });
-        return existingUser ? true : false;
-      } catch (error) {
-        return false;
+  const usersCollection = await users()
+  try {
+      const existingUser = await usersCollection.findOne({ username: username });
+      return existingUser ? true : false;
+    } catch (error) {
+      return false;
+    }
+}
+
+export const login = async (username, password) => {
+  const usersCollection = await users();
+  try {
+      const user = await usersCollection.findOne({ username });
+      if (!user) {
+          return {success: false, message: "Could not find user with given username and password"};
       }
+
+      if (!(await bcrypt.compare(password, user.password))) {
+        return {success: false, message: "Could not find user with given username and password"};
+      }
+
+      const { _id, displayName, role } = user;
+      return { success: true, _id:_id.toString(), username: user.username, displayName, role };
+  } catch (error) {
+      return {success: false, message: "Internal server error"};
+  }
 }
