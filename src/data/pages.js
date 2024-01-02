@@ -19,3 +19,8 @@ export const getPage = async (title) => {
     const pageCollection = await pages()
     return (await pageCollection.find({title}).toArray())[0]
 }
+
+export const deletePage = async (title) => {
+    const pageCollection = await pages()
+    return (await pageCollection.findOneAndDelete({title}))
+}

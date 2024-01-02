@@ -13,6 +13,11 @@ const DynamicPage = ({header, content, title, authorId}) => {
     const [editing, setEditing] = useState(false)
     const { data } = useSession()
 
+    const deletePage = async () => {
+        alert("delete triggered")
+        // TODO
+    }
+
     if(editing && data?.user?.sub == authorId) // Replace true with auth later on
         return <Main>
         <div style={{width: "90%", margin: "10px auto", display: "flex", justifyContent: "space-around", gap: "10px"}}>
@@ -24,7 +29,7 @@ const DynamicPage = ({header, content, title, authorId}) => {
     return <Main>
             <div style={{width: "90%", margin: "10px auto", display: "flex", justifyContent: "space-around", gap: "10px"}}>
                 <div style={{backgroundColor: "#393E46", width: "calc(100%)", padding: "10px", position: "relative"}}>
-                    {(data?.user?.sub == authorId) ? <button style={{position: "absolute", top: "20px", right: "20px", backgroundColor: "#536878", color: "white", padding: "10px 20px", border: "none", cursor: "pointer"}} onClick={()=>setEditing(true)}>Edit</button> : <></>}
+                    {(data?.user?.sub == authorId) ? <div style={{position: "absolute", top: "20px", right: "20px", display: "flex", gap: "10px"}}><button style={{backgroundColor: "#536878", color: "white", padding: "10px 20px", border: "none", cursor: "pointer"}} onClick={()=>setEditing(true)}>Edit</button><button style={{backgroundColor: "#536878", color: "white", padding: "10px 20px", border: "none", cursor: "pointer"}} onClick={()=>deletePage()}>Delete</button></div> : <></>}
                     <div style={{backgroundColor: "#393E46", width: "100%", margin: "0"}}><Markdown rehypePlugins={[rehypeRaw]} className={style.markdownStyle}>{header}</Markdown></div>
                     <div style={{backgroundColor: "#393E46", width: "100%", margin: "0"}}><Markdown rehypePlugins={[rehypeRaw]} className={style.markdownStyle}>{content}</Markdown></div>
                 </div>
