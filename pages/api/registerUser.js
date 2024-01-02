@@ -1,6 +1,6 @@
 import { createUser, userExists } from "@/src/data/users";
 
-export default async function editPage(req, res) {
+export default async function register(req, res) {
   if (req.method === 'POST') {
     try {
       const { username, password, displayName } = req.body;
@@ -12,6 +12,6 @@ export default async function editPage(req, res) {
       res.status(500).json({ message: error });
     }
   } else {
-    res.status(405).json({ nessage: 'Method Not Allowed' });
+    res.status(405).json({ message: 'Method Not Allowed' });
   }
 }
