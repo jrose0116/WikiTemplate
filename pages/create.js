@@ -32,7 +32,7 @@ const CreatePage = () => {
             },
             body: JSON.stringify({ title, content, author: data.user.sub })
             })).json()
-            if(res.message == "Success") window.location.href = `/pages/${title}`
+            if(res.message == "Success") window.location.href = `/pages/${encodeURIComponent(title)}`
             else (toast.error(res.message))
         }
         else toast.error("Authentication Error")

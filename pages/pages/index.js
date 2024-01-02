@@ -22,11 +22,11 @@ export async function getServerSideProps() {
 
     let char = ''
     content = data.reduce((total, page)=> {
-        if(char == page.title.charAt(0).toLowerCase() || (!isNaN(page.title.charAt(0)) && char == "#")) total+=`\n#### - <a style="color: white; text-decoration: none; border: none; text-transform: capitalize" href="/pages/${page.title}">${page.title}</a>`
+        if(char == page.title.charAt(0).toLowerCase() || (!isNaN(page.title.charAt(0)) && char == "#")) total+=`\n#### - <a style="color: white; text-decoration: none; border: none; text-transform: capitalize" href="/pages/${encodeURIComponent(page.title)}">${page.title}</a>`
         else { 
             if (!isNaN(page.title.charAt(0))) char = "\\#"
             else char = page.title.charAt(0).toLowerCase()
-            total += `\n## ${char.toLocaleUpperCase()}:\n#### - <a style="color: white; text-decoration: none; border: none; text-transform: capitalize" href="/pages/${page.title}">${page.title}</a>`
+            total += `\n## ${char.toLocaleUpperCase()}:\n#### - <a style="color: white; text-decoration: none; border: none; text-transform: capitalize" href="/pages/${encodeURIComponent(page.title)}">${page.title}</a>`
         }
         return total
     }
