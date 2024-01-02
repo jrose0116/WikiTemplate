@@ -3,6 +3,7 @@ import style from "@/src/styles/markdownstyling.module.css"
 import { useState } from "react"
 import rehypeRaw from "rehype-raw";
 import Main from "@/components/main/Main"
+import { toast } from 'react-toastify';
 
 const CreatePage = () => {
     const [preview, setPreview] = useState(0)
@@ -12,14 +13,15 @@ const CreatePage = () => {
     const [content, setContent] = useState("## Content")
 
     const savePage = async () => {
-        let res = await fetch('/api/createPage', {
+        let res = await (await fetch('/api/createPage', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({ title, content, author })
-        })
-        window.location.reload()
+        })).json()
+        if(res.message == "") window.location.reload()
+        else (toast.error(res.message))
     }
 
     const buttonStyle = {backgroundColor: "#536878", color: "white", padding: "10px 20px", border: "none"}
