@@ -31,7 +31,7 @@ const Main = ({children}) => {
                 </div>
             </div>
             { (status !== "loading") ? (data) ?
-            <a onClick={()=>doSignOut()} style={{...navLinkStyle, position: "absolute", right: "10px"}}><p>Sign Out</p></a> : 
+            <a onClick={()=>doSignOut()} style={{...navLinkStyle, position: "absolute", right: "10px", cursor: "pointer"}}><p>Sign Out</p></a> : 
             <a href="/login" style={{...navLinkStyle, position: "absolute", right: "10px"}}><p>Log In</p></a>
             : <></>}
         </nav>
