@@ -22,7 +22,8 @@ This is the home page for my Wiki/Forum template website.
 - Next.js
     - React.js
     - Node.js / NPM
-- Database (TBD)
+    - NextAuth
+- MongoDB
 ## Contributors
 This application has been worked on by:
 - Jacob Rosengarten | [@jrose0116](https://www.github.com/jrose0116) (Just me for now 🥺)
