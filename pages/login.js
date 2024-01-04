@@ -2,6 +2,7 @@ import { useState } from "react";
 import Main from "@/components/main/Main";
 import { toast } from "react-toastify";
 import {signIn} from "next-auth/react"
+import Link from "next/link";
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -35,6 +36,7 @@ const Login = () => {
                     <label>Username: <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required /></label>
                     <label>Password: <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required /></label>
                     <button type="submit" style={{backgroundColor: "#536878", color: "white", padding: "10px 20px", border: "none", width: "200px", margin: "auto"}}>Log In</button>
+                    <Link style={{color: "white", fontSize: "14px", textDecoration: "none"}} href="/register">Need An Account? Register Here</Link>
                 </form>
             </div>
         </div>
