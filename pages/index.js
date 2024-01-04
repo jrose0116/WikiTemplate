@@ -12,7 +12,6 @@ This is the home page for my Wiki/Forum template website.
 #TODO
 - Authentication
     - Admin Permissions
-    - Delete Pages
 - Input Validation
 - Deployment
 \`\`\`
@@ -31,8 +30,8 @@ This application has been worked on by:
 - \`/\` Here we are at the root directory
 - \`/docs\` The documents directories (Generally static)
     - \`/[page]\` The document page: See navigation
-- \`/pages\` The pages directories (Dynamically loaded pages)
-    - \`/[page]\` The dynamic page
+- \`/pages\` The pages directories.
+    - \`/[page]\` The dynamic page - view, edit, or delete the page (depending on permissions)
 - \`/create\` Create pages
 ## Deployment
 Deployment has not yet been decided although AWS is a likely choice
