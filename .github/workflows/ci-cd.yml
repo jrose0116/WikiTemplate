@@ -1,0 +1,27 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+     - name: Install NPM
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: Pull code
+      run: git pull origin main
+
+    - name: Build
+      run: Stop-Process -Name "node" -Force -ErrorAction SilentlyContinue
+      run: npm install
+      run: npm run dev
