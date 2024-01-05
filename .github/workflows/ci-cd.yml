@@ -22,6 +22,7 @@ jobs:
         run: git pull origin main
 
       - name: Build
-        run: Stop-Process -Name "node" -Force -ErrorAction SilentlyContinue
-        run: npm install
-        run: npm run dev
+        run: | 
+        Stop-Process -Name "node" -Force -ErrorAction SilentlyContinue
+        npm install
+        npm run dev
