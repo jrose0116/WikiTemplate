@@ -23,6 +23,6 @@ jobs:
 
       - name: Build
         run: | 
-        Stop-Process -Name "node" -Force -ErrorAction SilentlyContinue
-        npm install
-        npm run dev
+          Stop-Process -Name "node" -Force -ErrorAction SilentlyContinue
+          npm install
+          npm run dev
