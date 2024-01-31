@@ -33,7 +33,7 @@ This application has been worked on by:
     - \`/[page]\` The dynamic page - view, edit, or delete the page (depending on permissions)
 - \`/create\` Create pages
 ## Deployment
-Deploymemt is handled using Heroku. DNS is handled using Cloudflare.
+Deployment is handled using Heroku. DNS is handled using Cloudflare.
 
 ---
 
