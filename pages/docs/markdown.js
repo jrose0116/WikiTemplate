@@ -46,7 +46,7 @@ BLOCK
     return <Main>
             <div style={{width: "90%", margin: "10px auto", display: "flex", justifyContent: "space-around", gap: "10px"}}>
             <div style={{backgroundColor: "#393E46", width: "100%", margin: "0", padding: "10px"}}><Markdown rehypePlugins={[rehypeRaw]} className={style.markdownStyle}>{content}</Markdown></div>
-            <div style={{backgroundColor: "#393E46", width: "30%", margin: "0"}}>Popular Pages</div>
+            {/* <div style={{backgroundColor: "#393E46", width: "30%", margin: "0"}}>Popular Pages</div> */}
             </div>
         </Main>
 }
