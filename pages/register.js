@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Main from "@/components/main/Main";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 const Register = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [displayName, setDisplayName] = useState('');
+    const router = useRouter()
 
     const registerUser = async (event) => {
         event.preventDefault()
@@ -19,7 +21,8 @@ const Register = () => {
             });
       
             if (response.ok) {
-                // redirect
+                toast.success("Successfully Registered")
+                router.push('/login')
             } else {
               const data = await response.json();
               toast.error(data.message || 'Registration failed');
