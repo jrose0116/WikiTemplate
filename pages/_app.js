@@ -1,5 +1,4 @@
-import { getSession } from 'next-auth/react';
-import { SessionProvider } from 'next-auth/react';
+import { getSession, SessionProvider } from 'next-auth/react';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App({ Component, pageProps, session }) {
