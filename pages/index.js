@@ -13,7 +13,6 @@ This is the home page for my Wiki/Forum template website.
 - Authentication
     - Admin Permissions
 - Input Validation
-- Deployment
 \`\`\`
 
 
